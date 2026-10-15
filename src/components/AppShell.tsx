@@ -27,7 +27,7 @@ function Section({ title, children, defaultOpen = true }: { title: string; child
       <button
         onClick={() => setOpen(!open)}
         aria-expanded={open}
-        className="flex w-full items-center justify-between px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-muted-foreground hover:text-foreground"
+        className="flex w-full items-center justify-between px-3 py-1 text-left text-[11px] font-semibold uppercase tracking-widest text-muted-foreground hover:text-foreground"
       >
         {title}
         <ChevronDown className={cn("h-3.5 w-3.5 transition-transform", !open && "-rotate-90")} />
