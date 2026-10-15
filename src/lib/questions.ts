@@ -495,7 +495,7 @@ const seeds: Seed[] = [
     slug: "min-coins-greedy", title: "Minimum Coins (Indian Currency)", topic: "greedy", difficulty: "Easy", tags: ["greedy"],
     statement: "Using denominations 1, 2, 5, 10, 20, 50, 100, 200, 500, 2000, print the minimum number of notes/coins to make amount V.",
     inputFormat: "A single integer V.", outputFormat: "Minimum count.", constraints: ["1 ≤ V ≤ 10^9"],
-    samples: [{ input: "121", output: "3", explanation: "100 + 20 + 1" }], tests: [{ input: "1", output: "1" }, { input: "2999", output: "9" }],
+    samples: [{ input: "121", output: "3", explanation: "100 + 20 + 1" }], tests: [{ input: "1", output: "1" }, { input: "2999", output: "10" }],
     hint: "This denomination system is canonical, so greedy works.", approach: "Take as many of the largest denomination as possible, then move down.",
     solution: wrap(`int main(){ long long v; cin>>v; int d[]={2000,500,200,100,50,20,10,5,2,1}; long long c=0; for(int x:d){ c+=v/x; v%=x;} cout<<c<<"\\n"; }`), time: "O(1)", space: "O(1)",
   },
