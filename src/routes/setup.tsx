@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import type { ReactNode } from "react";
 
 export const Route = createFileRoute("/setup")({
   head: () => ({
@@ -14,7 +15,7 @@ export const Route = createFileRoute("/setup")({
   component: Setup,
 });
 
-function Step({ n, children }: { n: number; children: React.ReactNode }) {
+function Step({ n, children }: { n: number; children: ReactNode }) {
   return (
     <li className="flex gap-4">
       <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-brand text-sm font-semibold text-primary-foreground">{n}</span>

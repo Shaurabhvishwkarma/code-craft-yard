@@ -10,33 +10,141 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BookmarksRouteImport } from './routes/bookmarks'
+import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as ProgressRouteImport } from './routes/progress'
+import { Route as ResourcesRouteImport } from './routes/resources'
+import { Route as SetupRouteImport } from './routes/setup'
+import { Route as QuestionsIndexRouteImport } from './routes/questions.index'
+import { Route as QuestionsSlugRouteImport } from './routes/questions.$slug'
+import { Route as TopicsTopicRouteImport } from './routes/topics.$topic'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BookmarksRoute = BookmarksRouteImport.update({
+  id: '/bookmarks',
+  path: '/bookmarks',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileRoute = ProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProgressRoute = ProgressRouteImport.update({
+  id: '/progress',
+  path: '/progress',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResourcesRoute = ResourcesRouteImport.update({
+  id: '/resources',
+  path: '/resources',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SetupRoute = SetupRouteImport.update({
+  id: '/setup',
+  path: '/setup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const QuestionsIndexRoute = QuestionsIndexRouteImport.update({
+  id: '/questions/',
+  path: '/questions/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const QuestionsSlugRoute = QuestionsSlugRouteImport.update({
+  id: '/questions/$slug',
+  path: '/questions/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TopicsTopicRoute = TopicsTopicRouteImport.update({
+  id: '/topics/$topic',
+  path: '/topics/$topic',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/bookmarks': typeof BookmarksRoute
+  '/profile': typeof ProfileRoute
+  '/progress': typeof ProgressRoute
+  '/resources': typeof ResourcesRoute
+  '/setup': typeof SetupRoute
+  '/questions/$slug': typeof QuestionsSlugRoute
+  '/topics/$topic': typeof TopicsTopicRoute
+  '/questions/': typeof QuestionsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/bookmarks': typeof BookmarksRoute
+  '/profile': typeof ProfileRoute
+  '/progress': typeof ProgressRoute
+  '/resources': typeof ResourcesRoute
+  '/setup': typeof SetupRoute
+  '/questions/$slug': typeof QuestionsSlugRoute
+  '/topics/$topic': typeof TopicsTopicRoute
+  '/questions': typeof QuestionsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/bookmarks': typeof BookmarksRoute
+  '/profile': typeof ProfileRoute
+  '/progress': typeof ProgressRoute
+  '/resources': typeof ResourcesRoute
+  '/setup': typeof SetupRoute
+  '/questions/$slug': typeof QuestionsSlugRoute
+  '/topics/$topic': typeof TopicsTopicRoute
+  '/questions/': typeof QuestionsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/bookmarks'
+    | '/profile'
+    | '/progress'
+    | '/resources'
+    | '/setup'
+    | '/questions/$slug'
+    | '/topics/$topic'
+    | '/questions/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/bookmarks'
+    | '/profile'
+    | '/progress'
+    | '/resources'
+    | '/setup'
+    | '/questions/$slug'
+    | '/topics/$topic'
+    | '/questions'
+  id:
+    | '__root__'
+    | '/'
+    | '/bookmarks'
+    | '/profile'
+    | '/progress'
+    | '/resources'
+    | '/setup'
+    | '/questions/$slug'
+    | '/topics/$topic'
+    | '/questions/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BookmarksRoute: typeof BookmarksRoute
+  ProfileRoute: typeof ProfileRoute
+  ProgressRoute: typeof ProgressRoute
+  ResourcesRoute: typeof ResourcesRoute
+  SetupRoute: typeof SetupRoute
+  QuestionsSlugRoute: typeof QuestionsSlugRoute
+  TopicsTopicRoute: typeof TopicsTopicRoute
+  QuestionsIndexRoute: typeof QuestionsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +156,75 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/bookmarks': {
+      id: '/bookmarks'
+      path: '/bookmarks'
+      fullPath: '/bookmarks'
+      preLoaderRoute: typeof BookmarksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/progress': {
+      id: '/progress'
+      path: '/progress'
+      fullPath: '/progress'
+      preLoaderRoute: typeof ProgressRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/resources': {
+      id: '/resources'
+      path: '/resources'
+      fullPath: '/resources'
+      preLoaderRoute: typeof ResourcesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/setup': {
+      id: '/setup'
+      path: '/setup'
+      fullPath: '/setup'
+      preLoaderRoute: typeof SetupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/questions/': {
+      id: '/questions/'
+      path: '/questions'
+      fullPath: '/questions/'
+      preLoaderRoute: typeof QuestionsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/questions/$slug': {
+      id: '/questions/$slug'
+      path: '/questions/$slug'
+      fullPath: '/questions/$slug'
+      preLoaderRoute: typeof QuestionsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/topics/$topic': {
+      id: '/topics/$topic'
+      path: '/topics/$topic'
+      fullPath: '/topics/$topic'
+      preLoaderRoute: typeof TopicsTopicRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BookmarksRoute: BookmarksRoute,
+  ProfileRoute: ProfileRoute,
+  ProgressRoute: ProgressRoute,
+  ResourcesRoute: ResourcesRoute,
+  SetupRoute: SetupRoute,
+  QuestionsSlugRoute: QuestionsSlugRoute,
+  TopicsTopicRoute: TopicsTopicRoute,
+  QuestionsIndexRoute: QuestionsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
