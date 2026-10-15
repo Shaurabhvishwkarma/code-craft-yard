@@ -47,8 +47,8 @@ const unb64 = (s: string | null | undefined) => {
 export const normalize = (s: string) => s.replace(/\r/g, "").split("\n").map((l) => l.trimEnd()).join("\n").trim();
 
 function config() {
-  const url = process.env.JUDGE0_API_URL;
-  const key = process.env.JUDGE0_API_KEY;
+  const url = process.env["JUDGE0_API_URL"];
+  const key = process.env["JUDGE0_API_KEY"];
   if (!url) return null;
   return { url: url.replace(/\/$/, ""), key };
 }
@@ -56,7 +56,7 @@ function config() {
 const NOT_CONFIGURED =
   "Code execution is not configured yet. Add a Judge0 endpoint (JUDGE0_API_URL and JUDGE0_API_KEY) to enable Run and Submit.";
 
-async function execute(cfg: { url: string; key?: string }, source: string, stdin: string, lang: string): Promise<ExecResult> {
+async function execute(cfg: { url: string; key?: string | undefined }, source: string, stdin: string, lang: string): Promise<ExecResult> {
   const headers: Record<string, string> = { "Content-Type": "application/json" };
   if (cfg.key) {
     if (cfg.url.includes("rapidapi")) {

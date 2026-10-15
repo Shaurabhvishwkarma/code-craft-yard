@@ -22,9 +22,9 @@ export const Route = createFileRoute("/")({
 function Home() {
   const p = useProgress();
   const solvedCount = QUESTIONS.filter((q) => p.solved[q.slug]).length;
-  const daily = dailyQuestion();
+  const daily = dailyQuestion()!;
   const recent = p.recent.map((r) => getQuestion(r.slug)).filter(Boolean).slice(0, 4);
-  const continueQ = recent[0] ?? QUESTIONS.find((q) => !p.solved[q.slug]) ?? QUESTIONS[0];
+  const continueQ = recent[0] ?? QUESTIONS.find((q) => !p.solved[q.slug]) ?? QUESTIONS[0]!;
   const byDiff = (["Easy", "Medium", "Hard"] as const).map((d) => {
     const all = QUESTIONS.filter((q) => q.difficulty === d);
     return { d, total: all.length, solved: all.filter((q) => p.solved[q.slug]).length };

@@ -582,5 +582,5 @@ export function relatedQuestions(q: Question, n = 4) {
 
 export function dailyQuestion(date = new Date()) {
   const key = Number(`${date.getUTCFullYear()}${date.getUTCMonth()}${date.getUTCDate()}`);
-  return QUESTIONS[(key * 2654435761) % QUESTIONS.length >>> 0] ?? QUESTIONS[0];
+  return QUESTIONS[Math.abs(key * 2654435761) % QUESTIONS.length]!;
 }

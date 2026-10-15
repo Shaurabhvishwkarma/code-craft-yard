@@ -8,7 +8,7 @@ export default function MonacoEditor({ value, onChange, height, onMount }: { val
       theme="vs-dark"
       value={value}
       onChange={(v) => onChange(v ?? "")}
-      onMount={onMount}
+      {...(onMount ? { onMount } : {})}
       loading={<div className="p-4 font-mono text-sm text-muted-foreground">Loading editor…</div>}
       options={{
         fontFamily: "JetBrains Mono, monospace",
